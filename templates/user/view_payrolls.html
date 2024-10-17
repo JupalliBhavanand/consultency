@@ -1,0 +1,23 @@
+{% extends 'partials/top.html' %}
+
+{% block content %}
+<h2>View Payrolls</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th>Salary</th>
+            <th>Download</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for payroll in payrolls %}
+        <tr>
+            <td>{{ payroll.month }}</td>
+            <td>{{ payroll.salary }}</td>
+            <td><a href="{{ payroll.file.url }}" download>Download Payroll</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
